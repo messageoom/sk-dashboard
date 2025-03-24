@@ -1,0 +1,207 @@
+/* 隐藏滚动条（全局样式，应用于 body 和容器） */
+body,
+.guest-map-container,
+.guest-map-container * {
+  -ms-overflow-style: none; /* IE 和 Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar,
+.guest-map-container::-webkit-scrollbar,
+.guest-map-container *::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* 容器样式 */
+.guest-map-container {
+  padding: 0 0px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* 图片项样式 */
+.image-item {
+  cursor: pointer;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  margin: 2px;
+  box-sizing: border-box;
+}
+
+.image-item:hover {
+  transform: scale(1.05);
+}
+
+/* 图片包裹样式 */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* 图片样式 */
+.guest-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* 加载中样式 */
+.image-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* 加载失败样式 */
+.image-error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* 图片名称样式 */
+.image-name {
+  padding: 4px;
+  font-size: 8px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 弹窗遮罩层样式 */
+.image-modal-wrapper .ant-modal-mask {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* 弹窗样式 */
+.image-modal .ant-modal-content {
+  background: rgba(51, 51, 51, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+/* 弹窗内容区域 */
+.image-modal .ant-modal-body {
+  padding: 20px;
+  text-align: center;
+  background: transparent;
+}
+
+/* 自定义关闭按钮样式 */
+.custom-close-button {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 40px;
+  height: 40px;
+  background-color: #ff4d4f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.custom-close-button:hover {
+  background-color: #ff7875;
+}
+
+.custom-close-button .anticon {
+  font-size: 20px;
+  color: #fff;
+}
+
+/* 弹窗图片包裹区域 */
+.modal-image-wrapper {
+  margin-bottom: 20px;
+}
+
+/* 弹窗图片样式 */
+.modal-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+/* 弹窗标题包裹区域 */
+.modal-title-wrapper {
+  background: #333;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* 弹窗标题样式 */
+.modal-title {
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  background: #333;
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* 特征容器样式 */
+.traits-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  background: #333;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* 特征项样式 */
+.trait-item {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background: #444;
+  border-radius: 4px;
+}
+
+/* 特征标签样式 */
+.trait-label {
+  font-weight: bold;
+  color: #ccc;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  background: #444;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+/* 特征值样式 */
+.trait-value {
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  background: #444;
+  padding: 2px 4px;
+  border-radius: 2px;
+}

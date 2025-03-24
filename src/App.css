@@ -1,0 +1,497 @@
+/* src/App.css */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: calc(var(--vh, 1vh) * 100) !important;
+  min-height: calc(var(--vh, 1vh) * 100) !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+}
+
+.ant-layout {
+  min-height: calc(var(--vh, 1vh) * 100) !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.app-layout {
+  min-height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+  position: relative;
+  background: none;
+}
+
+.app-layout::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: calc(var(--vh, 1vh) * 100) !important;
+  min-width: 100vw !important;
+  min-height: calc(var(--vh, 1vh) * 100) !important;
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(8px);
+  z-index: -2;
+  background-color: #333;
+}
+
+.app-layout::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: calc(var(--vh, 1vh) * 100) !important;
+  min-width: 100vw !important;
+  min-height: calc(var(--vh, 1vh) * 100) !important;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: -1;
+}
+
+/* 标题容器样式 */
+.header-container {
+  position: relative;
+  padding: 20px 0;
+  margin: 0 20px 16px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.header-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+/* 主标题样式 */
+.page-title {
+  font-size: 36px;
+  color: #FFD700;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "PingFang SC", Arial, sans-serif;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 副标题样式 */
+.page-description {
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0;
+  position: relative;
+  font-family: "PingFang SC", Arial, sans-serif;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in 0.2s forwards;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 橙色下划线 */
+.page-description::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background-color: #FF7043;
+}
+
+/* 淡入动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app-container {
+  padding: 20px;
+  min-height: calc(var(--vh, 1vh) * 100);
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+.error-message {
+  color: #ff4d4f;
+  opacity: 1;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.loading-message {
+  color: #fff;
+  opacity: 1;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.ant-layout-content {
+  margin-left: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: calc(var(--vh, 1vh) * 100);
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.ant-layout-sider-collapsed + .ant-layout-content {
+  margin-left: 0;
+}
+
+.chart-container {
+  min-height: 400px;
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    max-width: 100%;
+    padding: 5px; /* 减少 padding，与 appContainerPadding 保持一致 */
+    overflow-x: visible;
+  }
+
+  .ant-layout-content {
+    margin-left: 0;
+  }
+
+  .ant-card {
+    width: 100%;
+    overflow: visible;
+    margin-left: 0; /* 移除可能的左边距 */
+    margin-right: 0; /* 移除可能的右边距 */
+  }
+
+  .header-container {
+    padding: 15px 0;
+    margin: 0 5px 16px 5px; /* 减少左右 margin，与 appContainerPadding 保持一致 */
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .page-description {
+    font-size: 15px;
+  }
+
+  .page-description::after {
+    width: 80px;
+  }
+
+  .chart-container {
+    min-height: 300px;
+  }
+
+  .disclaimer-card {
+    margin: 30px 0 10px 0;
+  }
+
+  .ant-row {
+    margin-bottom: 16px;
+    margin-left: 0 !important; /* 移除 Row 的左右 margin */
+    margin-right: 0 !important;
+  }
+
+  .ant-col {
+    padding-left: 0 !important; /* 移除 Col 的左右 padding */
+    padding-right: 0 !important;
+  }
+
+  .stats-card {
+    margin: 16px 0; /* 调整上下 margin，左右 margin 由父容器控制 */
+  }
+
+  .top-products-table .ant-table-thead > tr > th,
+  .top-products-table .ant-table-tbody > tr > td {
+    font-size: 12px !important;
+    padding: 8px !important;
+  }
+
+  .top-products-table .ant-table-tbody .ant-image {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .line-chart,
+  .bar-chart,
+  .pie-chart {
+    transform: none; /* 移除微调位移 */
+  }
+
+  .line-chart .echarts-for-react,
+  .bar-chart .echarts-for-react,
+  .pie-chart .echarts-for-react {
+    width: 100% !important; /* 占满父容器宽度 */
+    height: 300px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .ant-card .pie-chart .echarts-for-react canvas {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 400px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* 确保交互后 canvas 可见 */
+  .ant-card .pie-chart .echarts-for-react canvas:hover,
+  .ant-card .pie-chart .echarts-for-react canvas:active {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 10px 0;
+    margin: 0 5px 16px 5px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .page-description {
+    font-size: 12px;
+  }
+
+  .page-description::after {
+    width: 60px;
+  }
+}
+
+.vertical-center-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  border-right: 0;
+}
+
+.custom-sider {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: calc(var(--vh, 1vh) * 100);
+  z-index: 1000;
+}
+
+.custom-sider .ant-layout-sider-trigger {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  background: #001529;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  transition: none;
+}
+
+.custom-sider:not(.ant-layout-sider-collapsed) .ant-layout-sider-trigger {
+  left: 0;
+}
+
+.custom-sider.ant-layout-sider-collapsed .ant-layout-sider-trigger {
+  display: none;
+}
+
+.custom-sider .ant-layout-sider-trigger .anticon {
+  font-size: 16px;
+  color: #fff;
+  opacity: 1;
+}
+
+.disclaimer-card .ant-card-head {
+  padding-bottom: 0;
+}
+
+.disclaimer-card .ant-card-body {
+  padding-top: 20px;
+}
+
+.disclaimer-card .ant-card-head-title {
+  color: #fff;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.disclaimer-card .disclaimer-text {
+  color: #fff;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.ant-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  opacity: 1;
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  overflow: visible !important;
+}
+
+.ant-card-head {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ant-card-head-title {
+  color: #fff;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.stats-card {
+  margin-top: 32px;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.stats-card .stats-card-title {
+  color: #ccc;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.stats-card .stats-card-value-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats-card .stats-card-icon {
+  font-size: 24px;
+  color: #FFD700;
+  margin-right: 8px;
+}
+
+.stats-card .stats-card-value {
+  color: #FFD700;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  font-size: 32px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.stats-card .value-text {
+  line-height: 1;
+}
+
+.ant-table {
+  background: transparent !important;
+  color: #fff;
+  opacity: 1;
+}
+
+.top-products-table.ant-table,
+.top-products-table .ant-table-container,
+.top-products-table .ant-table-content,
+.top-products-table .ant-table-body,
+.top-products-table .ant-table-thead,
+.top-products-table .ant-table-tbody,
+.top-products-table .ant-table-thead > tr,
+.top-products-table .ant-table-tbody > tr,
+.top-products-table .ant-table-thead > tr > th,
+.top-products-table .ant-table-tbody > tr > td {
+  background: transparent !important;
+  color: #fff;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.top-products-table .ant-table-thead > tr > th {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 16px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.top-products-table .ant-table-tbody > tr > td {
+  font-size: 14px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 0.1);
+}
+
+.top-products-table .ant-table-tbody > tr:hover > td {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transition: background 0.3s ease;
+}
+
+.custom-preview-mask {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: #fff !important;
+  font-size: 12px !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.table-row-animated {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.bar-chart .echarts-for-react,
+.line-chart .echarts-for-react,
+.pie-chart .echarts-for-react {
+  background: transparent !important;
+}
+
+.bar-chart .echarts-for-react text,
+.line-chart .echarts-for-react text,
+.pie-chart .echarts-for-react text {
+  fill: #fff;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}

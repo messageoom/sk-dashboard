@@ -1,0 +1,443 @@
+/* src/styles/pages/QA.module.css */
+.qaContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  background: transparent;
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+  padding: 0;
+}
+
+.qaHeader {
+  background: transparent;
+  padding: 20px;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: none;
+  position: static;
+  max-width: 800px;
+  margin: 0 auto;
+  backdrop-filter: none;
+  box-sizing: border-box;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.pageDescription {
+  font-size: 1.1rem;
+  color: #ccc;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.qaList {
+  padding: 20px;
+  padding-top: 0;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.qaList::-webkit-scrollbar {
+  display: none;
+}
+
+.qaCategory {
+  margin-bottom: 30px;
+}
+
+.categoryTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.qaCard {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.qaCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.qaQuestion {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.qaIcon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.qaAnswer {
+  font-size: 1rem;
+  color: #fff;
+  line-height: 1.8;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  display: block; /* 移除 flex 布局，改为 block */
+}
+
+/* 答案文本样式 */
+.answerText {
+  text-align: left; /* 靠左对齐 */
+  text-indent: 2em; /* 首行缩进 */
+}
+
+/* 答案中的段落 */
+.answerText p {
+  text-align: left; /* 靠左对齐 */
+  text-indent: 2em; /* 首行缩进 */
+  margin: 5px 0;
+}
+
+/* 反馈区域包裹样式 */
+.feedbackWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 靠左对齐 */
+  gap: 20px;
+  width: 100%;
+}
+
+/* 公众号名称样式 */
+.publicAccount {
+  font-weight: bold;
+  color: #FFD700;
+  background: rgba(255, 215, 0, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 分隔线样式 */
+.divider {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #FFD700, transparent);
+  margin: 10px 0;
+  align-self: center; /* 分隔线居中 */
+}
+
+/* 二维码区域包裹样式 */
+.qrCodeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 二维码区域内部元素保持居中 */
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  align-self: center; /* 使二维码区域在父元素中居中 */
+}
+
+/* 二维码区域背景装饰 */
+.qrCodeWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  z-index: -1;
+}
+
+/* 二维码图标样式 */
+.qrCodeIcon {
+  font-size: 1.5rem;
+  color: #FFD700;
+  margin-bottom: 10px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* 二维码样式 */
+.qrCode {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #FFD700, #FFECB3) padding-box, linear-gradient(45deg, #FFD700, #FFECB3) border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.qrCode:hover {
+  transform: scale(1.05);
+}
+
+/* 二维码提示文本样式 */
+.qrCodeText {
+  font-size: 0.9rem;
+  color: #FFD700;
+  margin-top: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 215, 0, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  animation: fadeIn 0.5s ease-in-out 0.2s;
+  animation-fill-mode: both;
+}
+
+/* 动画效果 */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .qaContainer {
+    padding: 0;
+  }
+
+  .qaHeader {
+    padding: 15px;
+  }
+
+  .qaList {
+    padding: 15px;
+    padding-bottom: 15px;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .pageDescription {
+    font-size: 1rem;
+  }
+
+  .categoryTitle {
+    font-size: 1.6rem;
+  }
+
+  .qaQuestion {
+    font-size: 1.3rem;
+  }
+
+  .qaAnswer {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .answerText {
+    font-size: 0.9rem;
+  }
+
+  .answerText p {
+    font-size: 0.9rem;
+  }
+
+  .qrCodeWrapper {
+    padding: 15px;
+  }
+
+  .qrCode {
+    width: 120px;
+    height: 120px;
+  }
+
+  .qrCodeIcon {
+    font-size: 1.3rem;
+  }
+
+  .qrCodeText {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .qaContainer {
+    padding: 0;
+  }
+
+  .qaHeader {
+    padding: 10px;
+  }
+
+  .qaList {
+    padding: 10px;
+    padding-bottom: 10px;
+  }
+
+  .pageTitle {
+    font-size: 1.8rem;
+  }
+
+  .pageDescription {
+    font-size: 0.9rem;
+  }
+
+  .categoryTitle {
+    font-size: 1.4rem;
+  }
+
+  .qaCard {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .qaQuestion {
+    font-size: 1.2rem;
+  }
+
+  .qaAnswer {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .answerText {
+    font-size: 0.85rem;
+  }
+
+  .answerText p {
+    font-size: 0.85rem;
+  }
+
+  .qrCodeWrapper {
+    padding: 10px;
+  }
+
+  .qrCode {
+    width: 100px;
+    height: 100px;
+  }
+
+  .qrCodeIcon {
+    font-size: 1.2rem;
+  }
+
+  .qrCodeText {
+    font-size: 0.75rem;
+  }
+}
+
+/* 宽屏设备优化 */
+@media (min-width: 1200px) {
+  .qaContainer {
+    max-width: 1000px;
+  }
+
+  .qaHeader {
+    max-width: 1000px;
+    padding: 25px;
+  }
+
+  .qaList {
+    padding: 25px;
+    padding-bottom: 30px;
+  }
+
+  .pageTitle {
+    font-size: 3rem;
+  }
+
+  .pageDescription {
+    font-size: 1.2rem;
+  }
+
+  .categoryTitle {
+    font-size: 2rem;
+  }
+
+  .qaCard {
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+
+  .qaQuestion {
+    font-size: 1.6rem;
+  }
+
+  .qaAnswer {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .answerText {
+    font-size: 1.1rem;
+  }
+
+  .answerText p {
+    font-size: 1.1rem;
+  }
+
+  .qrCodeWrapper {
+    padding: 25px;
+  }
+
+  .qrCode {
+    width: 180px;
+    height: 180px;
+  }
+
+  .qrCodeIcon {
+    font-size: 1.8rem;
+  }
+
+  .qrCodeText {
+    font-size: 1rem;
+  }
+}
+
+.supportLink {
+  color: #FF69B4;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.supportLink:hover {
+  color: #FF1493;
+  text-decoration: none;
+}
